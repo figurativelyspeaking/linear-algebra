@@ -162,7 +162,7 @@ export function sum(...args: Num[]) {
 export function quadraticRoots(a: Num, b: Num, c: Num): [Num, Num] {
 	if (a.equalTo(0)) throw new Error(`Quadratic formula requires non-zero 'a' value`)
 	const discriminant = b.squared.minus(Num.Create(4).times(a.times(c)))
-	if (discriminant < 0) throw new Error('Matrix does not admit real eigenvalues.  It admits a pair of complex conjugates as eigenvalues, and this project cannot calculate complex roots of quadratic equations yet.  Please note that by the fundamental theorem of arithmetic, any 2x2 matrix that does not admit two real eigenvalues must necessarily admit a pair of complex conjugates as eigenvalues.")
+	if (discriminant < 0) throw new Error(`Matrix does not admit real eigenvalues.  It admits a pair of complex conjugates as eigenvalues, and this project cannot calculate complex roots of quadratic equations yet.  Please note that by the fundamental theorem of arithmetic, any 2x2 matrix that does not admit two real eigenvalues must necessarily admit a pair of complex conjugates as eigenvalues.`)
 	const minusB = b.scale(-1)
 	const firstRoot = minusB.add(discriminant.root).divideBy(a.scale(2))
 	const secondRoot = minusB.minus(discriminant.root).divideBy(a.scale(2))
