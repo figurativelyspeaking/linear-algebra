@@ -16,6 +16,8 @@ export function eigenvalues(mtx: Matrix) : [Num, Num] {
 
 	console.log(`${lambdaSquared}λ² + ${lambdaSingle}λ + ${constant}`)
 
+	if (lambdaSingle.squared.minus(Num.Create(4).times(lambdaSquared.times(constant))) < 0) throw new Error(`Matrix does not admit real eigenvalues. It admits a pair of complex conjugates as eigenvalues, and this project cannot calculate complex roots of quadratic equations yet. Please note that by the fundamental theorem of arithmetic, and 2x2 matrix that does not admit two real eigenvalues must necessarily admit a pair of complex conjugates as eigenvalues.`)
+
 	const roots = quadraticRoots(lambdaSquared, lambdaSingle, constant)
     console.log(`${roots[0].toString()}, ${roots[1].toString()}`)
     return roots
